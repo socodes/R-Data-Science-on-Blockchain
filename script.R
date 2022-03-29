@@ -16,11 +16,10 @@ res <- GET(
   add_headers('Accept'= 'application/json', 'X-API-Key'='75M7UOXmGM6IRRnKreRblUTEhJSE1Hfnn6cEUSVPmQdvsdf1KwMwBCpznqMTBoHn')
 )
 data <- fromJSON(rawToChar(res$content), flatten=TRUE)
+print(data)
+data <- fromJSON(data$result$metadata)
+data$created_at
 
-data2 <- fromJSON(rawToChar(data$result$metadata), flatten=TRUE)
-data2
-data <- data %>% 
-  select_if(~!all(is.na(.)))
 
 
 
