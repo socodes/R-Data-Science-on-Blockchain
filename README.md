@@ -26,8 +26,10 @@ How to use:
 install.package(PACKAGE_NAME)
 - Change current working directory to repository location.
 - Run the script: "Rscript main.R"
-- Screenshots will be added.
 
+
+Plot that shows how many days passed from the creation of each NFT:
+![](plot1.png)
 
 External Resources:
 - https://docs.moralis.io/introduction/readme

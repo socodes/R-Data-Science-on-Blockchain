@@ -17,7 +17,7 @@ library(ggrepel)
 token=Sys.getenv("API_KEY")
 
 # API Url.
-URL <- "https://deep-index.moralis.io/api/v2/nft/search?chain=eth&format=decimal&q=successful&filter=name&limit=3"
+URL <- "https://deep-index.moralis.io/api/v2/nft/search?chain=eth&format=decimal&q=successful&filter=name&limit=5"
 
 # make a get request to API and take related data.
 res <- GET(
@@ -52,5 +52,12 @@ for (i in created_vector) {
   print(i)
 }
 print(time_vector)
+data <- data.frame(x_axis = time_vector,  
+                  y_axis = (1:5))
 
-barplot(as.matrix(time_vector))                       # Draw barplot with names
+# barplot() function is used to
+# plot the bar and horiz field is
+# used to plot bar horizontally
+barplot(data$x_axis ~ data$y_axis, ylim= c(1500,1600),ylab = "Days passed from creation", xlab = "NFT",
+        horiz = FALSE)
+
