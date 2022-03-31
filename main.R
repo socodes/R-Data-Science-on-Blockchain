@@ -11,7 +11,20 @@ library(jsonlite)
 library(scales)
 library(waffle)
 library(ggrepel)
+get_data <- function(api) {
+  # make a get request to API and take related data.
+  res <- GET(
+    api,
+    add_headers('Accept'= 'application/json', 'X-API-Key'='75M7UOXmGM6IRRnKreRblUTEhJSE1Hfnn6cEUSVPmQdvsdf1KwMwBCpznqMTBoHn')
+  )
+  #Convert raw data to JSON.
+  data <- fromJSON(rawToChar(res$content), flatten=TRUE)
+}
 
+draw_barchart <- function(data, xstring,ystring) {
+  barplot(data$x_axis ~ data$y_axis, ylim= c(1500,1600),ylab = ystring, xlab = xstring,
+          horiz = FALSE)
+}
 
 # Get API Key from System Environments.
 token=Sys.getenv("API_KEY")
@@ -19,15 +32,8 @@ token=Sys.getenv("API_KEY")
 # API Url.
 URL <- "https://deep-index.moralis.io/api/v2/nft/search?chain=eth&format=decimal&q=successful&filter=name&limit=5"
 
-# make a get request to API and take related data.
-res <- GET(
-  URL,
-  
-  add_headers('Accept'= 'application/json', 'X-API-Key'='75M7UOXmGM6IRRnKreRblUTEhJSE1Hfnn6cEUSVPmQdvsdf1KwMwBCpznqMTBoHn')
-)
-#Convert raw data to JSON.
-data <- fromJSON(rawToChar(res$content), flatten=TRUE)
 
+data <- get_data(URL)
 time_vector<-c()
 created_vector<-c()
 # take metadata in data/result.
@@ -55,9 +61,5 @@ print(time_vector)
 data <- data.frame(x_axis = time_vector,  
                   y_axis = (1:5))
 
-# barplot() function is used to
-# plot the bar and horiz field is
-# used to plot bar horizontally
-barplot(data$x_axis ~ data$y_axis, ylim= c(1500,1600),ylab = "Days passed from creation", xlab = "NFT",
-        horiz = FALSE)
+draw_barchart(data, "Days passed from creation", "NFT")
 
