@@ -16,6 +16,7 @@ Building:
 - will be implemented.
 
 Testing:
+
 Unit testing is used. Testing covers to have the correct number of answers from the API and the correct number of NFTs while plotting the barplot.
 
 ````
