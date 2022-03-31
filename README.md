@@ -44,9 +44,14 @@ Unit testing is used. Testing covers to have the correct number of answers from 
 
 To install the R package, you’d type
 
+from R:
 ```
 - install()
+```
 OR
+
+from command line:
+```
 - R CMD INSTALL NFT_1.0.0.tar.gz
 ```
 
