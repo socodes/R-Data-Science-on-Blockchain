@@ -11,6 +11,9 @@ library(jsonlite)
 library(scales)
 library(waffle)
 library(ggrepel)
+#import library that is needed in the testing
+library(testthat)
+
 get_data <- function(api) {
   # make a get request to API and take related data.
   res <- GET(
@@ -59,7 +62,18 @@ for (i in created_vector) {
 }
 print(time_vector)
 data <- data.frame(x_axis = time_vector,  
-                  y_axis = (1:5))
+                   y_axis = (1:5))
 
 bar <- draw_barchart(data, "NFT", "Days passed from creation")
+
+
+
+
+# TESTS
+
+# correct response should have 4 elements: total, page, page_size, result
+expect_true(length(get_data(URL)) == 4)
+
+# draw_barchart function returns the total NFT number. In our case it is 5.
+expect_true(length(bar) == 5)
 

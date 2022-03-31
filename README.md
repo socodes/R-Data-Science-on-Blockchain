@@ -9,12 +9,19 @@ Dependencies:
 - scales
 - waffle
 - ggrepel
+- testthat
 
 
 Building:
 - will be implemented.
+
 Testing:
-- will be implemented.
+Unit testing is used. Testing covers to have the correct number of answers from the API and the correct number of NFTs while plotting the barplot.
+
+````
+- Change current working directory to repository location.
+- Run the script: "Rscript tests.R"
+````
 
 
 Install:
