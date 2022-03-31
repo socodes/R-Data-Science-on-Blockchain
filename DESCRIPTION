@@ -1,0 +1,10 @@
+Package: NFT
+Version: 1.0.0
+Date: 2022-03-31
+Title: Create Visualise Items for NFTs
+Author: Muhammed Didin (mdidinxy@gmail.com)
+Depends: R (>= 3.1.0)
+Suggests: MASS
+Description: A R Package that helps to see NFT data 
+License: MIT License
+URL: https://github.com/socodes/R-Data-Science-on-Blockchain

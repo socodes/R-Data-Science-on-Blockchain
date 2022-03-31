@@ -11,6 +11,7 @@ library(jsonlite)
 library(scales)
 library(waffle)
 library(ggrepel)
+library(devtools)
 get_data <- function(api) {
   # make a get request to API and take related data.
   res <- GET(
@@ -62,4 +63,5 @@ data <- data.frame(x_axis = time_vector,
                   y_axis = (1:5))
 
 bar <- draw_barchart(data, "NFT", "Days passed from creation")
+build("~/Desktop/R-Data-Science-on-Blockchain")
 
