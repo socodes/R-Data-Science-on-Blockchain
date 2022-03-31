@@ -47,7 +47,7 @@ To install the R package, you’d type
 ```
 - install()
 OR
-- R CMD INSTALL PACKAGE_NAME.tar.gz
+- R CMD INSTALL NFT_1.0.0.tar.gz
 ```
 
 ## How to use:
